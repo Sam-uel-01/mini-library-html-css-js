@@ -1,0 +1,51 @@
+.section-1 {
+  height: 500px;
+  width: 400px;
+}
+
+.card {
+  margin: 50px;
+  padding: 25px;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+#headingOne {
+  margin-top: 30px;
+  font-size: 65px;
+}
+.activeHeadingOne {
+  color: white;
+}
+
+.darkModeTogglerContainer {
+  float: right;
+  width: 40px;
+  border: 2px solid black;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 2px;
+}
+.darkModeTogglerContainer .fa-solid {
+  font-size: 20px;
+}
+.darkMode {
+  background: black;
+}
+.activeTogglerContainer {
+  border: 2px solid white;
+  justify-content: end;
+}
+.activeMoon {
+  color: white;
+}
+.activeTableColor {
+  color: white;
+}

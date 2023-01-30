@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="./script.js" async></script>
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="./bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+
+        <!-- Bootstrap JS -->
+        <script src="./bootstrap-5.3.0-alpha1-dist/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js" async></script>
+
+        <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/63cdd7bf48.js" crossorigin="anonymous" async></script>
+    </head>
+
+    <body>
+        <!-- Modal -->
+        <div class="modal fade" id="author" tabindex="-1" aria-labelledby="author" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="author">Author's Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Modal -->
+
+        <header class="navbar text-bg-dark text-center">
+            <nav class="container flex justify-content-center">
+                <h3 class="text-uppercase">Books Library Project</h3>
+            </nav>
+        </header>
+        <main id="main" class="">
+            <section>
+                <div class="darkModeTogglerContainer">
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+            </section>
+            <section class="container">
+                <div class="d-flex justify-content-center">
+                    <div style="text-align: center;">
+                        <h1 id="headingOne" class="text-uppercase">Book <i class="fa-solid fa-book text-success"></i>
+                            Lists</h1>
+                        <img src="./img/header-img.webp" />
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="heroSection col-lg-7 col-11">
+                        <div class="card">
+                            <form novalidate>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="Title" id="title" required>
+                                    <label for="title" class="form-label text-uppercase">Title</label>
+                                    <div class="invalid-feedback">Kindly enter Title of Author!</div>
+                                    <div class="valid-feedback">Looks good.</div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="author" id="author" required>
+                                    <label for="author" class="form-label text-uppercase">Author</label>
+                                    <div class="invalid-feedback">Name of Author is required!</div>
+                                    <div class="valid-feedback">Looks good.</div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="isbn" id="isbn" required>
+                                    <label for="isbn" class="form-label text-uppercase">isbn</label>
+                                    <div class="invalid-feedback">ISBN is required!</div>
+                                    <div class="valid-feedback">Looks good.</div>
+                                </div>
+
+                                <button type='button' class="btn bg-success">SUBMIT</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table text-center table-hover">
+                        <thead class="table-group-divider">
+                            <tr>
+                                <th>#</th>
+                                <th>TITLE</th>
+                                <th>AUTHOR</th>
+                                <th>ISBN</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </section>
+        </main>
+
+    </body>
+
+</html>
