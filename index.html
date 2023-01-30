@@ -25,11 +25,15 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="author">Author's Details</h1>
+                        <h1 class="modal-title fs-5" id="author">Author's Info</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row"></div>
+                        <div class="row d-flex justify-content-center text-center">
+                            <div class="col-4"><b>Title: </b><span id="modalTitle"></span></div>
+                            <div class="col-4"><b>Name: </b><span id="modalAuthor"></span></div>
+                            <div class="col-4"><b>ISBN: </b><span id="modalISBN"></span></div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -81,7 +85,7 @@
                                     <div class="valid-feedback">Looks good.</div>
                                 </div>
 
-                                <button type='button' class="btn bg-success">SUBMIT</button>
+                                <button id="submitBtn" type='button' class="btn bg-success">SUBMIT</button>
                             </form>
                         </div>
 

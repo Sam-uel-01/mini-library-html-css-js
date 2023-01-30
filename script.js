@@ -1,6 +1,3 @@
-if (document.readyState != "loading") {
-}
-
 // *******************************************************************
 // ************DARK AND LIGHT MODE **********************************
 
@@ -11,7 +8,7 @@ const darkModeTogglerContainer = document.querySelector(
 )
 const headingOne = document.querySelector("#headingOne")
 const thead = document.querySelector("thead")
-const tbody = document.querySelector("tbody")
+const tbodyMode = document.querySelector("tbody")
 
 const modeStatus = JSON.parse(localStorage.getItem("darkMode"))
 if (modeStatus == "dark") {
@@ -20,7 +17,7 @@ if (modeStatus == "dark") {
   thead.classList.add("activeHeadingOne")
   darkToggler.classList.add("activeMoon")
   headingOne.classList.add("activeHeadingOne")
-  tbody.classList.add("activeHeadingOne")
+  tbodyMode.classList.add("activeHeadingOne")
 }
 
 darkToggler.addEventListener("click", () => {
@@ -30,7 +27,7 @@ darkToggler.addEventListener("click", () => {
   darkToggler.classList.toggle("activeMoon")
   headingOne.classList.toggle("activeHeadingOne")
   thead.classList.toggle("activeHeadingOne")
-  tbody.classList.toggle("activeHeadingOne")
+  tbodyMode.classList.toggle("activeHeadingOne")
 
   if (main.classList.contains("darkMode")) {
     localStorage.setItem("darkMode", JSON.stringify("dark"))
@@ -43,7 +40,7 @@ darkToggler.addEventListener("click", () => {
 // *****************FORM VALIDATION AND COLLECTING FORM DATA***********************************
 // ********************************************************************************************
 const form = document.querySelector("form")
-const submitButton = document.querySelector("button")
+const submitButton = document.querySelector("#submitBtn")
 submitButton.addEventListener("click", collectData)
 
 let newAuthor = []
@@ -99,6 +96,7 @@ function localStorageUpdate() {
 renderDOM()
 function renderDOM() {
   const allAuthors = JSON.parse(localStorage.getItem("Authors"))
+  // const allAuthors = localStorage.getItem("Authors") ? JSON.parse(localStorage.getItem("Authors")) : []
 
   // Rendering LocalStorage Data on the DOM
   const tbody = document.querySelector("tbody")
@@ -116,7 +114,7 @@ function renderDOM() {
           <td>
             <div class='btn-group'>
 
-              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#author">
+              <button type="button" class="btn btn-success viewAuthor" data-bs-toggle="modal" data-bs-target="#author">
                View
               </button>
               <button class="btn btn-danger">X</button>
@@ -140,18 +138,16 @@ for (let delBtn of deleteBtn) {
 }
 function deleteFunc(e) {
   let Authors = JSON.parse(localStorage.getItem("Authors"))
-
   const idx =
     e.target.parentElement.parentElement.parentElement.children[0].textContent
 
   const confirmDelete = confirm("Are you sure you want to delete?")
 
   if (confirmDelete) {
-    Authors = Authors.filter((author, i) => {
-      return i != idx
+    Authors = Authors.filter((author) => {
+      return Authors.indexOf(author) != idx
     })
   }
-
   localStorage.setItem("Authors", JSON.stringify(Authors))
 
   setTimeout(() => {
@@ -160,5 +156,29 @@ function deleteFunc(e) {
 }
 
 // ***************************************************************************************
-// ************************** MODAL FOR EACH ITEM     **********************************
+// ************************** MODAL FOR EACH ITEM     ************************************
 // ***************************************************************************************
+const modalTitle = document.querySelector("#modalTitle")
+const modalAuthor = document.querySelector("#modalAuthor")
+const modalISBN = document.querySelector("#modalISBN")
+const view = document.querySelectorAll(".viewAuthor")
+
+for (let viewBtn of view) {
+  viewBtn.addEventListener("click", modalFunc)
+}
+
+function modalFunc(e) {
+  let Authors = JSON.parse(localStorage.getItem("Authors"))
+
+  const idx =
+    e.target.parentElement.parentElement.parentElement.children[0].textContent
+
+  Authors = Authors.filter((author) => {
+    return Authors.indexOf(author) == idx
+  })
+
+  const { title, author, isbn } = Authors[0]
+  modalTitle.textContent = title
+  modalAuthor.textContent = author
+  modalISBN.textContent = isbn
+}
